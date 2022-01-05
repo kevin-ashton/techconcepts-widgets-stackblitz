@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 
+function dec2bin(dec) {
+  return (dec >>> 0).toString(2);
+}
+
 export function AsciiWidget() {
   const [textValue, setTextValue] = useState('Hello');
 
@@ -21,6 +25,22 @@ export function AsciiWidget() {
             <td className="uppercase">Letters</td>
             {textChars.map((v, index) => {
               return <td key={index}>{v}</td>;
+            })}
+          </tr>
+          <tr>
+            <td className="uppercase">Asii #</td>
+            {textChars.map((v, index) => {
+              return <td key={index}>{v.charCodeAt(0)}</td>;
+            })}
+          </tr>
+          <tr>
+            <td className="uppercase">Binary #</td>
+            {textChars.map((v, index) => {
+              return (
+                <td key={index}>
+                  {`${dec2bin(v.charCodeAt(0))}`.padStart(8, '0')}
+                </td>
+              );
             })}
           </tr>
         </tbody>

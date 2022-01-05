@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function dec2bin(dec) {
   return (dec >>> 0).toString(2);
@@ -6,6 +6,15 @@ function dec2bin(dec) {
 
 export function AsciiWidget() {
   const [textValue, setTextValue] = useState('Hello');
+  const [hasInputedValue, setHasInputedValue] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      
+    })
+    
+  }, [])
+  
 
   const textChars = textValue.split('');
 
@@ -19,7 +28,7 @@ export function AsciiWidget() {
         onChange={(e) => setTextValue(e.target.value)}
       />
 
-      <table className="mt-3 table-auto">
+      <table className="mt-3 table-auto text-center">
         <tbody>
           <tr>
             <td className="uppercase">Letters</td>
@@ -34,7 +43,7 @@ export function AsciiWidget() {
             })}
           </tr>
           <tr>
-            <td className="uppercase">Binary #</td>
+            <td className="uppercase">Binary</td>
             {textChars.map((v, index) => {
               return (
                 <td key={index}>

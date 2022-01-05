@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
+import { AsciiWidget } from './widgets/ascii';
 import './style.css';
 
 interface AppProps {}
@@ -18,9 +19,8 @@ class App extends Component<AppProps, AppState> {
 
   render() {
     return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>Start editing to see some magic happen :) Oh baby!</p>
+      <div className="p-5">
+        <AsciiWidget />
       </div>
     );
   }
